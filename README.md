@@ -1,45 +1,94 @@
-# Human Activity Recognition (HAR) using wearable sensor data.
+<div align="center">
 
-It includes several steps:
+# 🏃 Human Activity Recognition (HAR)
 
-### Import libraries:
+**Classify what a person is doing (walking, sitting, standing, lying…) from smartphone accelerometer and gyroscope data.**
 
-This section imports necessary libraries like pandas, matplotlib, scikit-learn, etc., for data manipulation, visualization, and machine learning tasks.
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat-square)
 
-### Load data: 
+**Best accuracy: 95.8% (Logistic Regression)**
 
-Download The DataSet: https://www.kaggle.com/code/abheeshthmishra/predictions-of-human-activity-recognition-96/input
+</div>
 
-The code loads the training and testing data from CSV files assumed to be located in the "Dataset" folder.
+---
 
-### Data exploration: 
+## 📖 Overview
 
-It performs some basic data exploration by displaying the first few rows of the data and visualizing the distribution of activity labels.
+Wearables and phones record motion through their **accelerometer** and **gyroscope**. This internship project explores that sensor data and compares four classic machine learning models for recognizing six activities:
 
-### Feature analysis:
+`WALKING` · `WALKING_UPSTAIRS` · `WALKING_DOWNSTAIRS` · `SITTING` · `STANDING` · `LAYING`
 
-The code counts the occurrences of features related to accelerometers, gyroscopes, and other sensors to understand the feature distribution.
+---
 
-### Time series analysis:
+## 🏆 Results
 
-It analyzes the time series data for the "STANDING" activity by creating a new column indicating the time window for each data point based on subject changes.
+| Model | Test accuracy |
+|---|---|
+| 🥇 **Logistic Regression** | **95.83%** |
+| 🥈 Support Vector Classifier | 95.05% |
+| 🥉 Random Forest | 92.98% |
+| K-Nearest Neighbors | 90.02% |
 
-### Visualization:
+*Numbers are from the saved notebook run. A bar chart comparing them is at the end of the notebook.*
 
-The code generates several visualizations, including:
+---
 
-A bar chart showing the distribution of activity labels in the training data.
+## 🔬 What the notebook covers
 
-A pie chart showing the same distribution in a different format.
+```mermaid
+flowchart LR
+    A[Load train/test CSVs] --> B[Explore<br/>activity distribution]
+    B --> C[Feature analysis<br/>acc / gyro / other]
+    C --> D[Time-series view<br/>STANDING per subject]
+    D --> E[Train 4 models]
+    E --> F[Compare accuracy]
+```
 
-A bar chart showing the number of features related to accelerometers, gyroscopes, and other sensors.
+1. **Data exploration**: activity label distribution (bar + pie charts)
+2. **Feature analysis**: counts features coming from the accelerometer, gyroscope and other sources
+3. **Time-series analysis**: plots the *angle between X and mean gravity* over time for different subjects while standing
+4. **Modeling**: SVC, Logistic Regression, KNN and Random Forest
+5. **Evaluation**: accuracy comparison chart
 
-A line plot visualizing the "angle between X and mean Gravity" vs. time for different subjects.
+---
 
-### Machine learning:
+## 🚀 Getting Started
 
-The code trains and evaluates four different machine learning models (Support Vector Classifier, Logistic Regression, K-Nearest Neighbors, and Random Forest) for activity classification and prints their accuracy scores.
+```bash
+git clone https://github.com/gmgowrish/Human_Activity_Recognition-HAR-.git
+cd Human_Activity_Recognition-HAR-
 
-### Visualization:
+pip install numpy pandas matplotlib scikit-learn jupyter
+```
 
-Finally, it creates a bar chart to compare the accuracy scores of these models.
+**Dataset:** download `train.csv` and `test.csv` from [Kaggle](https://www.kaggle.com/code/abheeshthmishra/predictions-of-human-activity-recognition-96/input) and put them in a `Dataset/` folder:
+
+```
+Dataset/
+├── train.csv
+└── test.csv
+```
+
+Then run:
+
+```bash
+jupyter notebook Intership_Pro.ipynb
+```
+
+---
+
+## 🛠️ Tech Stack
+
+**Python** · **Pandas** · **NumPy** · **Matplotlib** · **scikit-learn** · **Jupyter Notebook**
+
+---
+
+<div align="center">
+
+Made by **[G M Gowrish](https://github.com/gmgowrish)** · ⭐ Star the repo if you find it useful!
+
+</div>
